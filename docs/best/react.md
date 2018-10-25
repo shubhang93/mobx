@@ -214,17 +214,6 @@ message.likes[2] = "Jennifer";
 
 This will react as expected. All array index assignments are detected, but only if `index <= length`.
 
-#### Incorrect: "use" an observable but without accessing any of its properties
-
-```javascript
-autorun(() => {
-    message.likes;
-})
-message.likes.push("Jennifer");
-```
-
-This will **not** react. Simply because the `likes` array itself is not being used by the `autorun`, only the reference to the array.
-So in contrast, `messages.likes = ["Jennifer"]` would be picked up; that statement does not modify the array, but the `likes` property itself.
 
 #### Using non-observable object properties
 
